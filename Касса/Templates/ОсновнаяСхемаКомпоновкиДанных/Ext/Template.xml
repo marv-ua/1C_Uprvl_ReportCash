@@ -211,72 +211,6 @@
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>РасшифровкаДепонент</dataPath>
-			<field>РасшифровкаДепонент</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Расшифровка депонент</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Содержание</dataPath>
-			<field>Содержание</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СубконтоДт3</dataPath>
-			<field>СубконтоДт3</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Сумма</dataPath>
-			<field>Сумма</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СчетДт</dataPath>
-			<field>СчетДт</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СчетКт</dataPath>
-			<field>СчетКт</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СубконтоДт1</dataPath>
-			<field>СубконтоДт1</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СубконтоДт2</dataPath>
-			<field>СубконтоДт2</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СубконтоКт1</dataPath>
-			<field>СубконтоКт1</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СубконтоКт2</dataPath>
-			<field>СубконтоКт2</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СубконтоКт3</dataPath>
-			<field>СубконтоКт3</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ВалютаДт</dataPath>
-			<field>ВалютаДт</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ВалютаКт</dataPath>
-			<field>ВалютаКт</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ПодразделениеДт</dataPath>
-			<field>ПодразделениеДт</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ПодразделениеКт</dataPath>
-			<field>ПодразделениеКт</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>СтатьяДвижения</dataPath>
 			<field>СтатьяДвижения</field>
 			<title xsi:type="v8:LocalStringType">
@@ -530,6 +464,981 @@
 
 СГРУППИРОВАТЬ ПО
 	УправленческийОстаткиИОбороты.Субконто1</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>СотрудникиПодотчет</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто3</dataPath>
+				<field>Субконто3</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Валюта</dataPath>
+				<field>Валюта</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СотрудникиПодотчет</dataPath>
+				<field>СотрудникиПодотчет</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сотрудники подотчет</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Приход</dataPath>
+				<field>Приход</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Приход</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Расход</dataPath>
+				<field>Расход</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Расход</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаНачальныйОстаток</dataPath>
+				<field>СуммаНачальныйОстаток</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сумма начальный остаток</v8:content>
+					</v8:item>
+				</title>
+				<role>
+					<dcscom:balance>true</dcscom:balance>
+					<dcscom:balanceGroupName>Сумма</dcscom:balanceGroupName>
+					<dcscom:balanceType>OpeningBalance</dcscom:balanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаКонечныйОстаток</dataPath>
+				<field>СуммаКонечныйОстаток</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сумма конечный остаток</v8:content>
+					</v8:item>
+				</title>
+				<role>
+					<dcscom:balance>true</dcscom:balance>
+					<dcscom:balanceGroupName>Сумма</dcscom:balanceGroupName>
+					<dcscom:balanceType>ClosingBalance</dcscom:balanceType>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ПОДОТЧЕТ) КАК СотрудникиПодотчет,
+	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотДт, 0) КАК Приход,
+	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотКт, 0) КАК Расход,
+	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаНачальныйОстаток, 0) КАК СуммаНачальныйОстаток,
+	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаКонечныйОстаток, 0) КАК СуммаКонечныйОстаток
+ИЗ
+	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(&amp;ДатаНачала, &amp;ДатаОкончания, , , Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ПОДОТЧЕТ)), , ) КАК УправленческийОстаткиИОбороты
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ЗАРПЛАТА),
+	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотДт, 0),
+	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотКт, 0),
+	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаНачальныйОстаток, 0),
+	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаКонечныйОстаток, 0)
+ИЗ
+	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(&amp;ДатаНачала, &amp;ДатаОкончания, , , Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ЗАРПЛАТА)), , ) КАК УправленческийОстаткиИОбороты
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"ПРИВИВКИ",
+	ЕСТЬNULL(УправленческийОбороты.СуммаОборотДт, 0),
+	ЕСТЬNULL(УправленческийОбороты.СуммаОборотКт, 0),
+	ЕСТЬNULL(УправленческийОбороты.СуммаНачальныйОстаток, 0),
+	ЕСТЬNULL(УправленческийОбороты.СуммаКонечныйОстаток, 0)
+ИЗ
+	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(&amp;ДатаНачала, &amp;ДатаОкончания, , , Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ФИНАГЕНТЫ)), , Субконто1 В ИЕРАРХИИ (&amp;ФинагентПрививки)) КАК УправленческийОбороты
+	
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"Ошибочный платеж",
+	ЕСТЬNULL(УправленческийОбороты.СуммаОборотДт, 0) КАК СуммаОборотДт,
+	ЕСТЬNULL(УправленческийОбороты.СуммаОборотКт, 0) КАК СуммаОборотКт,
+	ЕСТЬNULL(УправленческийОбороты.СуммаНачальныйОстаток, 0) КАК СуммаНачальныйОстаток,
+	ЕСТЬNULL(УправленческийОбороты.СуммаКонечныйОстаток, 0) КАК СуммаКонечныйОстаток
+ИЗ
+	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(&amp;ДатаНачала, &amp;ДатаОкончания, , , Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ФИНАГЕНТЫ)), , Субконто1 В ИЕРАРХИИ (&amp;ФинагентОшибочные)) КАК УправленческийОбороты
+
+ОБЪЕДИНИТЬ ВСЕ
+                    
+ВЫБРАТЬ
+	"Инет магаз",
+	УправленческийОбороты.СуммаОборотДт КАК СуммаОборотДт,
+	УправленческийОбороты.СуммаОборотКт КАК СуммаОборотКт,
+	УправленческийОбороты.СуммаНачальныйОстаток КАК СуммаНачальныйОстаток,
+	УправленческийОбороты.СуммаКонечныйОстаток КАК СуммаКонечныйОстаток
+ИЗ
+	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(&amp;ДатаНачала, &amp;ДатаОкончания, Авто, , Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ФИНАГЕНТЫ)), , Субконто1 В (&amp;ФинагентИнетМагаз)) КАК УправленческийОбороты                    </query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ВНДМеркурий2</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто3</dataPath>
+				<field>Субконто3</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСубконто1</dataPath>
+				<field>КорСубконто1</field>
+				<useRestriction>
+					<field>true</field>
+					<group>true</group>
+					<order>true</order>
+				</useRestriction>
+				<attributeUseRestriction>
+					<field>true</field>
+					<group>true</group>
+					<order>true</order>
+				</attributeUseRestriction>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+				<useRestriction>
+					<field>true</field>
+					<group>true</group>
+					<order>true</order>
+				</useRestriction>
+				<attributeUseRestriction>
+					<field>true</field>
+					<group>true</group>
+					<order>true</order>
+				</attributeUseRestriction>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСубконто2</dataPath>
+				<field>КорСубконто2</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСчет</dataPath>
+				<field>КорСчет</field>
+				<useRestriction>
+					<field>true</field>
+					<group>true</group>
+					<order>true</order>
+				</useRestriction>
+				<attributeUseRestriction>
+					<field>true</field>
+					<group>true</group>
+					<order>true</order>
+				</attributeUseRestriction>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Валюта</dataPath>
+				<field>Валюта</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСубконто3</dataPath>
+				<field>КорСубконто3</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВалютаКор</dataPath>
+				<field>ВалютаКор</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПодразделениеКор</dataPath>
+				<field>ПодразделениеКор</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Приход</dataPath>
+				<field>Приход</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Приход</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВНДМеркурий</dataPath>
+				<field>ВНДМеркурий</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ВНДМеркурий</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Расход</dataPath>
+				<field>Расход</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Расход</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПолеСортировки</dataPath>
+				<field>ПолеСортировки</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Поле сортировки</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Итог</dataPath>
+				<field>Итог</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Итог</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	"ВНД Меркурий 2" КАК ВНДМеркурий,
+	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотДт, 0) КАК Приход,
+	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотКт, 0) КАК Расход,
+	УправленческийОстаткиИОбороты.Субконто1 КАК Субконто1,
+	УправленческийОстаткиИОбороты.КорСубконто1 КАК КорСубконто1,
+	УправленческийОстаткиИОбороты.КорСчет КАК КорСчет,
+	1 КАК ПолеСортировки,
+	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотКт, 0) - ВЫБОР
+		КОГДА УправленческийОстаткиИОбороты.КорСчет = ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Поставщики)
+			ТОГДА ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотКт, 0)
+		ИНАЧЕ 0
+	КОНЕЦ КАК Итог
+ИЗ
+	РегистрБухгалтерии.Управленческий.Обороты(&amp;ДатаНачала, &amp;ДатаОкончания, Регистратор, Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ПОСТАВЩИКИ)), , Субконто1 В ИЕРАРХИИ (&amp;Поставщик32), , ) КАК УправленческийОстаткиИОбороты
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"взаиморасчет",
+	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотДт, 0),
+	ВЫБОР
+		КОГДА УправленческийОстаткиИОбороты.КорСчет = ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Поставщики)
+			ТОГДА ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотКт, 0)
+		ИНАЧЕ 0
+	КОНЕЦ,
+	УправленческийОстаткиИОбороты.Субконто1,
+	УправленческийОстаткиИОбороты.КорСубконто1,
+	УправленческийОстаткиИОбороты.КорСчет,
+	2,
+	NULL
+ИЗ
+	РегистрБухгалтерии.Управленческий.Обороты(&amp;ДатаНачала, &amp;ДатаОкончания, Регистратор, Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ПОСТАВЩИКИ)), , Субконто1 В ИЕРАРХИИ (&amp;Поставщик32), , ) КАК УправленческийОстаткиИОбороты</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>Реализация</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтатьяДвижения</dataPath>
+				<field>СтатьяДвижения</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Статья движения</v8:content>
+					</v8:item>
+				</title>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Валюта</dataPath>
+				<field>Валюта</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто3</dataPath>
+				<field>Субконто3</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Реализация</dataPath>
+				<field>Реализация</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Реализация</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Приход</dataPath>
+				<field>Приход</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Приход</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>РеализацияКасса</dataPath>
+				<field>РеализацияКасса</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Реализация касса</v8:content>
+					</v8:item>
+				</title>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	"Реализация" КАК Реализация,
+	УправленческийОстаткиИОбороты.Субконто1 КАК РеализацияКасса,
+	УправленческийОстаткиИОбороты.Счет КАК Счет,
+	УправленческийОстаткиИОбороты.Субконто2 КАК СтатьяДвижения,
+	УправленческийОстаткиИОбороты.СуммаОборотДт КАК Приход
+ИЗ
+	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(
+			&amp;ДатаНачала,
+			&amp;ДатаОкончания,
+			Регистратор,
+			,
+			Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса)),
+			,
+			Субконто1 В (&amp;СписокКасс)
+				И Субконто2 = &amp;ДДСВыручка) КАК УправленческийОстаткиИОбороты</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>Пост22</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Пост22Касса</dataPath>
+				<field>Пост22Касса</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Пост22 касса</v8:content>
+					</v8:item>
+				</title>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Пост22</dataPath>
+				<field>Пост22</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Пост22</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Валюта</dataPath>
+				<field>Валюта</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто3</dataPath>
+				<field>Субконто3</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСубконто1</dataPath>
+				<field>КорСубконто1</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСубконто2</dataPath>
+				<field>КорСубконто2</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСубконто3</dataPath>
+				<field>КорСубконто3</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВалютаКор</dataPath>
+				<field>ВалютаКор</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПодразделениеКор</dataPath>
+				<field>ПодразделениеКор</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСчет</dataPath>
+				<field>КорСчет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Приход</dataPath>
+				<field>Приход</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Приход</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Расход</dataPath>
+				<field>Расход</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Расход</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	"Пост22" КАК Пост22,
+	УправленческийОбороты.КорСубконто1 КАК Пост22Касса,  
+	ВЫБОР КОГДА (СУММА(УправленческийОбороты.СуммаОборотКт) - СУММА(УправленческийОбороты.СуммаОборотДт)) &gt; 0 ТОГДА (СУММА(УправленческийОбороты.СуммаОборотКт) - СУММА(УправленческийОбороты.СуммаОборотДт)) ИНАЧЕ 0 КОНЕЦ КАК Приход,
+	ВЫБОР КОГДА (СУММА(УправленческийОбороты.СуммаОборотДт) - СУММА(УправленческийОбороты.СуммаОборотКт)) &gt; 0 ТОГДА (СУММА(УправленческийОбороты.СуммаОборотДт) - СУММА(УправленческийОбороты.СуммаОборотКт)) ИНАЧЕ 0 КОНЕЦ КАК Расход
+ИЗ
+	РегистрБухгалтерии.Управленческий.Обороты(
+			&amp;ДатаНачала,
+			&amp;ДатаОкончания,
+			Регистратор,
+			Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Поставщики)),
+			,
+			Субконто1 В (&amp;ВыбПоставкики)
+				И КорСубконто1 В (&amp;СписокКасс),
+			КорСчет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса)),
+			) КАК УправленческийОбороты
+
+СГРУППИРОВАТЬ ПО
+	УправленческийОбороты.КорСубконто1</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>Возвраты</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтатьяДвижения</dataPath>
+				<field>СтатьяДвижения</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Статья движения</v8:content>
+					</v8:item>
+				</title>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Валюта</dataPath>
+				<field>Валюта</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто3</dataPath>
+				<field>Субконто3</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Возвраты</dataPath>
+				<field>Возвраты</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Возвраты</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВозвратКасса</dataPath>
+				<field>ВозвратКасса</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Возврат касса</v8:content>
+					</v8:item>
+				</title>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Расход</dataPath>
+				<field>Расход</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Расход</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	"Возвраты" КАК Возвраты,
+	УправленческийОстаткиИОбороты.Субконто1 КАК ВозвратКасса,
+	УправленческийОстаткиИОбороты.Субконто2 КАК СтатьяДвижения,
+	УправленческийОстаткиИОбороты.СуммаОборотКт КАК Расход
+ИЗ
+	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(
+			&amp;ДатаНачала,
+			&amp;ДатаОкончания,
+			Регистратор,
+			,
+			Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса)),
+			,
+			Субконто1 В (&amp;СписокКасс)
+				И Субконто2 = &amp;ДДСВозврат) КАК УправленческийОстаткиИОбороты</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>Приходы51</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Валюта</dataPath>
+				<field>Валюта</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто3</dataPath>
+				<field>Субконто3</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСубконто1</dataPath>
+				<field>КорСубконто1</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСубконто2</dataPath>
+				<field>КорСубконто2</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСубконто3</dataPath>
+				<field>КорСубконто3</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВалютаКор</dataPath>
+				<field>ВалютаКор</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПодразделениеКор</dataPath>
+				<field>ПодразделениеКор</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСчет</dataPath>
+				<field>КорСчет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Приход51Касса</dataPath>
+				<field>Приход51Касса</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Приход51 касса</v8:content>
+					</v8:item>
+				</title>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Приход51</dataPath>
+				<field>Приход51</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Приход51</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Приход</dataPath>
+				<field>Приход</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Приход</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Расход</dataPath>
+				<field>Расход</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Расход</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	"Расшифровка 51" КАК Приход51,
+	УправленческийОбороты.Субконто1 КАК Приход51Касса,
+	УправленческийОбороты.СуммаОборотДт КАК Расход,
+	УправленческийОбороты.СуммаОборотКт КАК Приход
+ИЗ
+	РегистрБухгалтерии.Управленческий.Обороты(
+			&amp;ДатаНачала,
+			&amp;ДатаОкончания,
+			Авто,
+			Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Банк)),
+			,
+			НЕ Субконто1 В ИЕРАРХИИ (&amp;РСПерсП20)
+				И КорСубконто1 В (&amp;СписокКасс),
+			КорСчет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса)),
+			) КАК УправленческийОбороты
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"Расшифровка 51",
+	"Жасмин",
+	КассовыеОперацииСтрокиДокумента.СуммаПрихода,
+	КассовыеОперацииСтрокиДокумента.СуммаРасхода
+ИЗ
+	Документ.КассовыеОперации.СтрокиДокумента КАК КассовыеОперацииСтрокиДокумента
+ГДЕ
+	КассовыеОперацииСтрокиДокумента.НаправлениеДвижения = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыОперацийИДвиженийДокументов.КассовыеОперации_Поступление)
+	И КассовыеОперацииСтрокиДокумента.ВидДвижения = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыОперацийИДвиженийДокументов.КассовыеОперации_Поступление_ОтПокупателя)
+	И КассовыеОперацииСтрокиДокумента.Объект = &amp;ПокупательРеализация
+	И КассовыеОперацииСтрокиДокумента.Подразделение В(&amp;ПодразделенияЖсмн)
+	И КассовыеОперацииСтрокиДокумента.Ссылка.Проведен
+	И КассовыеОперацииСтрокиДокумента.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>РасшифровкаПеремещения</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>РП</dataPath>
+				<field>РП</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>РП</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Расход</dataPath>
+				<field>Расход</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Расход</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Приход</dataPath>
+				<field>Приход</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Приход</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>РПКасса</dataPath>
+				<field>РПКасса</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>РПКасса</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	"Расшифровка перемещений" КАК РП,
+	КассовыеОперацииСтрокиДокумента.СуммаРасхода КАК Расход,
+	КассовыеОперацииСтрокиДокумента.СуммаПрихода КАК Приход,
+//	КассовыеОперацииСтрокиДокумента.Ссылка.Касса КАК Касса,
+	КассовыеОперацииСтрокиДокумента.Объект КАК РПКасса
+ИЗ
+	Документ.КассовыеОперации.СтрокиДокумента КАК КассовыеОперацииСтрокиДокумента
+ГДЕ
+	КассовыеОперацииСтрокиДокумента.Ссылка.Проведен
+	И КассовыеОперацииСтрокиДокумента.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И КассовыеОперацииСтрокиДокумента.ВидДвижения = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыОперацийИДвиженийДокументов.КассовыеОперации_Платеж_ВДругуюКассу)
+	И КассовыеОперацииСтрокиДокумента.СтатьяДвиженияДенег = ЗНАЧЕНИЕ(Справочник.СтатьиДвиженияДенег.ВнутренниеПеремещения)
+	И КассовыеОперацииСтрокиДокумента.Ссылка.Касса В(&amp;СписокКасс)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"Расшифровка перемещений",
+	КассовыеОперацииСтрокиДокумента.СуммаПрихода,
+	КассовыеОперацииСтрокиДокумента.СуммаРасхода,
+//	КассовыеОперацииСтрокиДокумента.Объект,
+	КассовыеОперацииСтрокиДокумента.Ссылка.Касса
+ИЗ
+	Документ.КассовыеОперации.СтрокиДокумента КАК КассовыеОперацииСтрокиДокумента
+ГДЕ
+	КассовыеОперацииСтрокиДокумента.Ссылка.Проведен
+	И КассовыеОперацииСтрокиДокумента.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И КассовыеОперацииСтрокиДокумента.ВидДвижения = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыОперацийИДвиженийДокументов.КассовыеОперации_Платеж_ВДругуюКассу)
+	И КассовыеОперацииСтрокиДокумента.СтатьяДвиженияДенег = ЗНАЧЕНИЕ(Справочник.СтатьиДвиженияДенег.ВнутренниеПеремещения)
+	И КассовыеОперацииСтрокиДокумента.Объект В(&amp;СписокКасс)</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ПерсП20</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто3</dataPath>
+				<field>Субконто3</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Валюта</dataPath>
+				<field>Валюта</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСубконто1</dataPath>
+				<field>КорСубконто1</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСубконто2</dataPath>
+				<field>КорСубконто2</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСубконто3</dataPath>
+				<field>КорСубконто3</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВалютаКор</dataPath>
+				<field>ВалютаКор</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПодразделениеКор</dataPath>
+				<field>ПодразделениеКор</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСчет</dataPath>
+				<field>КорСчет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПП20Группа</dataPath>
+				<field>ПП20Группа</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>П п20 группа</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПП20РСчет</dataPath>
+				<field>ПП20РСчет</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>П п20 р счет</v8:content>
+					</v8:item>
+				</title>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Приход</dataPath>
+				<field>Приход</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Приход</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПП20</dataPath>
+				<field>ПП20</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>П п20</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Расход</dataPath>
+				<field>Расход</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Расход</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	"_" КАК ПП20,
+	"Перс" КАК ПП20Группа,
+	УправленческийОбороты.Субконто1 КАК ПП20РСчет,
+	УправленческийОбороты.СуммаОборотДт КАК Расход,
+	УправленческийОбороты.СуммаОборотКт КАК Приход
+ИЗ
+	РегистрБухгалтерии.Управленческий.Обороты(
+			&amp;ДатаНачала,
+			&amp;ДатаОкончания,
+			Авто,
+			Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Банк)),
+			,
+			Субконто1 В ИЕРАРХИИ (&amp;ВыбПерсы)
+				И КорСубконто1 В (&amp;СписокКасс),
+			КорСчет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса)),
+			) КАК УправленческийОбороты
+
+СГРУППИРОВАТЬ ПО
+	УправленческийОбороты.Субконто1,
+	УправленческийОбороты.СуммаОборотДт,
+	УправленческийОбороты.СуммаОборотКт
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"",
+	"П20",
+	УправленческийОбороты.Субконто1,
+	УправленческийОбороты.СуммаОборотДт,
+	УправленческийОбороты.СуммаОборотКт
+ИЗ
+	РегистрБухгалтерии.Управленческий.Обороты(
+			&amp;ДатаНачала,
+			&amp;ДатаОкончания,
+			Авто,
+			Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Банк)),
+			,
+			Субконто1 В ИЕРАРХИИ (&amp;ВыбП20)
+				И КорСубконто1 В (&amp;СписокКасс),
+			КорСчет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса)),
+			) КАК УправленческийОбороты
+
+СГРУППИРОВАТЬ ПО
+	УправленческийОбороты.Субконто1,
+	УправленческийОбороты.СуммаОборотДт,
+	УправленческийОбороты.СуммаОборотКт
+</query>
 		</item>
 		<item xsi:type="DataSetQuery">
 			<name>ПриходРасход</name>
@@ -1188,1084 +2097,152 @@
 	УправленческийОбороты.Счет,
 	УправленческийОбороты.Субконто1</query>
 		</item>
-		<item xsi:type="DataSetQuery">
-			<name>СотрудникиПодотчет</name>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто3</dataPath>
-				<field>Субконто3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Подразделение</dataPath>
-				<field>Подразделение</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Счет</dataPath>
-				<field>Счет</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто1</dataPath>
-				<field>Субконто1</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто2</dataPath>
-				<field>Субконто2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Валюта</dataPath>
-				<field>Валюта</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СотрудникиПодотчет</dataPath>
-				<field>СотрудникиПодотчет</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Сотрудники подотчет</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Приход</dataPath>
-				<field>Приход</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Приход</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Расход</dataPath>
-				<field>Расход</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Расход</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СуммаНачальныйОстаток</dataPath>
-				<field>СуммаНачальныйОстаток</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Сумма начальный остаток</v8:content>
-					</v8:item>
-				</title>
-				<role>
-					<dcscom:balance>true</dcscom:balance>
-					<dcscom:balanceGroupName>Сумма</dcscom:balanceGroupName>
-					<dcscom:balanceType>OpeningBalance</dcscom:balanceType>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СуммаКонечныйОстаток</dataPath>
-				<field>СуммаКонечныйОстаток</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Сумма конечный остаток</v8:content>
-					</v8:item>
-				</title>
-				<role>
-					<dcscom:balance>true</dcscom:balance>
-					<dcscom:balanceGroupName>Сумма</dcscom:balanceGroupName>
-					<dcscom:balanceType>ClosingBalance</dcscom:balanceType>
-				</role>
-			</field>
-			<dataSource>ИсточникДанных1</dataSource>
-			<query>ВЫБРАТЬ
-	ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ПОДОТЧЕТ) КАК СотрудникиПодотчет,
-	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотДт, 0) КАК Приход,
-	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотКт, 0) КАК Расход,
-	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаНачальныйОстаток, 0) КАК СуммаНачальныйОстаток,
-	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаКонечныйОстаток, 0) КАК СуммаКонечныйОстаток
-ИЗ
-	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(&amp;ДатаНачала, &amp;ДатаОкончания, , , Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ПОДОТЧЕТ)), , ) КАК УправленческийОстаткиИОбороты
-
-ОБЪЕДИНИТЬ ВСЕ
-
-ВЫБРАТЬ
-	ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ЗАРПЛАТА),
-	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотДт, 0),
-	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотКт, 0),
-	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаНачальныйОстаток, 0),
-	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаКонечныйОстаток, 0)
-ИЗ
-	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(&amp;ДатаНачала, &amp;ДатаОкончания, , , Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ЗАРПЛАТА)), , ) КАК УправленческийОстаткиИОбороты
-
-ОБЪЕДИНИТЬ ВСЕ
-
-ВЫБРАТЬ
-	"ПРИВИВКИ",
-	ЕСТЬNULL(УправленческийОбороты.СуммаОборотДт, 0),
-	ЕСТЬNULL(УправленческийОбороты.СуммаОборотКт, 0),
-	ЕСТЬNULL(УправленческийОбороты.СуммаНачальныйОстаток, 0),
-	ЕСТЬNULL(УправленческийОбороты.СуммаКонечныйОстаток, 0)
-ИЗ
-	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(&amp;ДатаНачала, &amp;ДатаОкончания, , , Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ФИНАГЕНТЫ)), , Субконто1 В ИЕРАРХИИ (&amp;ФинагентПрививки)) КАК УправленческийОбороты
-	
-ОБЪЕДИНИТЬ ВСЕ
-
-ВЫБРАТЬ
-	"Ошибочный платеж",
-	ЕСТЬNULL(УправленческийОбороты.СуммаОборотДт, 0) КАК СуммаОборотДт,
-	ЕСТЬNULL(УправленческийОбороты.СуммаОборотКт, 0) КАК СуммаОборотКт,
-	ЕСТЬNULL(УправленческийОбороты.СуммаНачальныйОстаток, 0) КАК СуммаНачальныйОстаток,
-	ЕСТЬNULL(УправленческийОбороты.СуммаКонечныйОстаток, 0) КАК СуммаКонечныйОстаток
-ИЗ
-	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(&amp;ДатаНачала, &amp;ДатаОкончания, , , Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ФИНАГЕНТЫ)), , Субконто1 В ИЕРАРХИИ (&amp;ФинагентОшибочные)) КАК УправленческийОбороты
-
-ОБЪЕДИНИТЬ ВСЕ
-                    
-ВЫБРАТЬ
-	"Инет магаз",
-	УправленческийОбороты.СуммаОборотДт КАК СуммаОборотДт,
-	УправленческийОбороты.СуммаОборотКт КАК СуммаОборотКт,
-	УправленческийОбороты.СуммаНачальныйОстаток КАК СуммаНачальныйОстаток,
-	УправленческийОбороты.СуммаКонечныйОстаток КАК СуммаКонечныйОстаток
-ИЗ
-	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(&amp;ДатаНачала, &amp;ДатаОкончания, Авто, , Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ФИНАГЕНТЫ)), , Субконто1 В (&amp;ФинагентИнетМагаз)) КАК УправленческийОбороты                    </query>
-		</item>
-		<item xsi:type="DataSetQuery">
-			<name>ВНДМеркурий2</name>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто3</dataPath>
-				<field>Субконто3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто1</dataPath>
-				<field>КорСубконто1</field>
-				<useRestriction>
-					<field>true</field>
-					<group>true</group>
-					<order>true</order>
-				</useRestriction>
-				<attributeUseRestriction>
-					<field>true</field>
-					<group>true</group>
-					<order>true</order>
-				</attributeUseRestriction>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто1</dataPath>
-				<field>Субконто1</field>
-				<useRestriction>
-					<field>true</field>
-					<group>true</group>
-					<order>true</order>
-				</useRestriction>
-				<attributeUseRestriction>
-					<field>true</field>
-					<group>true</group>
-					<order>true</order>
-				</attributeUseRestriction>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто2</dataPath>
-				<field>КорСубконто2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСчет</dataPath>
-				<field>КорСчет</field>
-				<useRestriction>
-					<field>true</field>
-					<group>true</group>
-					<order>true</order>
-				</useRestriction>
-				<attributeUseRestriction>
-					<field>true</field>
-					<group>true</group>
-					<order>true</order>
-				</attributeUseRestriction>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Счет</dataPath>
-				<field>Счет</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто2</dataPath>
-				<field>Субконто2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Валюта</dataPath>
-				<field>Валюта</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Подразделение</dataPath>
-				<field>Подразделение</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто3</dataPath>
-				<field>КорСубконто3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ВалютаКор</dataPath>
-				<field>ВалютаКор</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ПодразделениеКор</dataPath>
-				<field>ПодразделениеКор</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Приход</dataPath>
-				<field>Приход</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Приход</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ВНДМеркурий</dataPath>
-				<field>ВНДМеркурий</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>ВНДМеркурий</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Расход</dataPath>
-				<field>Расход</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Расход</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ПолеСортировки</dataPath>
-				<field>ПолеСортировки</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Поле сортировки</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Итог</dataPath>
-				<field>Итог</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Итог</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<dataSource>ИсточникДанных1</dataSource>
-			<query>ВЫБРАТЬ
-	"ВНД Меркурий 2" КАК ВНДМеркурий,
-	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотДт, 0) КАК Приход,
-	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотКт, 0) КАК Расход,
-	УправленческийОстаткиИОбороты.Субконто1 КАК Субконто1,
-	УправленческийОстаткиИОбороты.КорСубконто1 КАК КорСубконто1,
-	УправленческийОстаткиИОбороты.КорСчет КАК КорСчет,
-	1 КАК ПолеСортировки,
-	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотКт, 0) - ВЫБОР
-		КОГДА УправленческийОстаткиИОбороты.КорСчет = ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Поставщики)
-			ТОГДА ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотКт, 0)
-		ИНАЧЕ 0
-	КОНЕЦ КАК Итог
-ИЗ
-	РегистрБухгалтерии.Управленческий.Обороты(&amp;ДатаНачала, &amp;ДатаОкончания, Регистратор, Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ПОСТАВЩИКИ)), , Субконто1 В ИЕРАРХИИ (&amp;Поставщик32), , ) КАК УправленческийОстаткиИОбороты
-
-ОБЪЕДИНИТЬ ВСЕ
-
-ВЫБРАТЬ
-	"взаиморасчет",
-	ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотДт, 0),
-	ВЫБОР
-		КОГДА УправленческийОстаткиИОбороты.КорСчет = ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Поставщики)
-			ТОГДА ЕСТЬNULL(УправленческийОстаткиИОбороты.СуммаОборотКт, 0)
-		ИНАЧЕ 0
-	КОНЕЦ,
-	УправленческийОстаткиИОбороты.Субконто1,
-	УправленческийОстаткиИОбороты.КорСубконто1,
-	УправленческийОстаткиИОбороты.КорСчет,
-	2,
-	NULL
-ИЗ
-	РегистрБухгалтерии.Управленческий.Обороты(&amp;ДатаНачала, &amp;ДатаОкончания, Регистратор, Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ПОСТАВЩИКИ)), , Субконто1 В ИЕРАРХИИ (&amp;Поставщик32), , ) КАК УправленческийОстаткиИОбороты</query>
-		</item>
-		<item xsi:type="DataSetQuery">
-			<name>РасшифровкаДепонент</name>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто3</dataPath>
-				<field>Субконто3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>РасшифровкаДепонент</dataPath>
-				<field>РасшифровкаДепонент</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Расшифровка депонент</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Содержание</dataPath>
-				<field>Содержание</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СубконтоДт3</dataPath>
-				<field>СубконтоДт3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Сумма</dataPath>
-				<field>Сумма</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СчетДт</dataPath>
-				<field>СчетДт</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СчетКт</dataPath>
-				<field>СчетКт</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СубконтоДт1</dataPath>
-				<field>СубконтоДт1</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СубконтоДт2</dataPath>
-				<field>СубконтоДт2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СубконтоКт1</dataPath>
-				<field>СубконтоКт1</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СубконтоКт2</dataPath>
-				<field>СубконтоКт2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ВалютаКор</dataPath>
-				<field>ВалютаКор</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СубконтоКт3</dataPath>
-				<field>СубконтоКт3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Счет</dataPath>
-				<field>Счет</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто1</dataPath>
-				<field>Субконто1</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Валюта</dataPath>
-				<field>Валюта</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто2</dataPath>
-				<field>Субконто2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСчет</dataPath>
-				<field>КорСчет</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто1</dataPath>
-				<field>КорСубконто1</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто2</dataPath>
-				<field>КорСубконто2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто3</dataPath>
-				<field>КорСубконто3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ВалютаДт</dataPath>
-				<field>ВалютаДт</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ВалютаКт</dataPath>
-				<field>ВалютаКт</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ПодразделениеКор</dataPath>
-				<field>ПодразделениеКор</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ПодразделениеДт</dataPath>
-				<field>ПодразделениеДт</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ПодразделениеКт</dataPath>
-				<field>ПодразделениеКт</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Подразделение</dataPath>
-				<field>Подразделение</field>
-			</field>
-			<dataSource>ИсточникДанных1</dataSource>
-			<query>ВЫБРАТЬ
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>РасшифровкаДепонент</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто3</dataPath>
+			<field>Субконто3</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СубконтоДт3</dataPath>
+			<field>СубконтоДт3</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СчетДт</dataPath>
+			<field>СчетДт</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СчетКт</dataPath>
+			<field>СчетКт</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СубконтоДт1</dataPath>
+			<field>СубконтоДт1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СубконтоДт2</dataPath>
+			<field>СубконтоДт2</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СубконтоКт1</dataPath>
+			<field>СубконтоКт1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СубконтоКт2</dataPath>
+			<field>СубконтоКт2</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВалютаКор</dataPath>
+			<field>ВалютаКор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СубконтоКт3</dataPath>
+			<field>СубконтоКт3</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Счет</dataPath>
+			<field>Счет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто1</dataPath>
+			<field>Субконто1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто2</dataPath>
+			<field>Субконто2</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСчет</dataPath>
+			<field>КорСчет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСубконто1</dataPath>
+			<field>КорСубконто1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСубконто2</dataPath>
+			<field>КорСубконто2</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСубконто3</dataPath>
+			<field>КорСубконто3</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВалютаДт</dataPath>
+			<field>ВалютаДт</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВалютаКт</dataPath>
+			<field>ВалютаКт</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКор</dataPath>
+			<field>ПодразделениеКор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеДт</dataPath>
+			<field>ПодразделениеДт</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКт</dataPath>
+			<field>ПодразделениеКт</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасшифровкаСумма</dataPath>
+			<field>РасшифровкаСумма</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расшифровка сумма</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасшифровкаСодержание</dataPath>
+			<field>РасшифровкаСодержание</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расшифровка содержание</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасшифровкаДепонент</dataPath>
+			<field>РасшифровкаДепонент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расшифровка депонент</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
 	"Депонент" КАК РасшифровкаДепонент,
-	УправленческийДвиженияССубконто.Содержание КАК Содержание,
-	УправленческийДвиженияССубконто.Сумма КАК Сумма
+	УправленческийДвиженияССубконто.Содержание КАК РасшифровкаСодержание,
+	УправленческийДвиженияССубконто.Сумма КАК РасшифровкаСумма
 ИЗ
 	РегистрБухгалтерии.Управленческий.ДвиженияССубконто(&amp;ДатаНачала, &amp;ДатаОкончания, СчетКт = ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Финагенты), , ) КАК УправленческийДвиженияССубконто
 ГДЕ
 	УправленческийДвиженияССубконто.СубконтоКт1 = &amp;ФинагентДепонент
 	И УправленческийДвиженияССубконто.СубконтоДт1 В(&amp;СписокКасс)</query>
-		</item>
-		<item xsi:type="DataSetQuery">
-			<name>Реализация</name>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Счет</dataPath>
-				<field>Счет</field>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто1</dataPath>
-				<field>Субконто1</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СтатьяДвижения</dataPath>
-				<field>СтатьяДвижения</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Статья движения</v8:content>
-					</v8:item>
-				</title>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто2</dataPath>
-				<field>Субконто2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Валюта</dataPath>
-				<field>Валюта</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто3</dataPath>
-				<field>Субконто3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Подразделение</dataPath>
-				<field>Подразделение</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Реализация</dataPath>
-				<field>Реализация</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Реализация</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Приход</dataPath>
-				<field>Приход</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Приход</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>РеализацияКасса</dataPath>
-				<field>РеализацияКасса</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Реализация касса</v8:content>
-					</v8:item>
-				</title>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-				</role>
-			</field>
-			<dataSource>ИсточникДанных1</dataSource>
-			<query>ВЫБРАТЬ
-	"Реализация" КАК Реализация,
-	УправленческийОстаткиИОбороты.Субконто1 КАК РеализацияКасса,
-	УправленческийОстаткиИОбороты.Счет КАК Счет,
-	УправленческийОстаткиИОбороты.Субконто2 КАК СтатьяДвижения,
-	УправленческийОстаткиИОбороты.СуммаОборотДт КАК Приход
-ИЗ
-	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(
-			&amp;ДатаНачала,
-			&amp;ДатаОкончания,
-			Регистратор,
-			,
-			Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса)),
-			,
-			Субконто1 В (&amp;СписокКасс)
-				И Субконто2 = &amp;ДДСВыручка) КАК УправленческийОстаткиИОбороты</query>
-		</item>
-		<item xsi:type="DataSetQuery">
-			<name>Пост22</name>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Пост22Касса</dataPath>
-				<field>Пост22Касса</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Пост22 касса</v8:content>
-					</v8:item>
-				</title>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Пост22</dataPath>
-				<field>Пост22</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Пост22</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Счет</dataPath>
-				<field>Счет</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто1</dataPath>
-				<field>Субконто1</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Валюта</dataPath>
-				<field>Валюта</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто2</dataPath>
-				<field>Субконто2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто3</dataPath>
-				<field>Субконто3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Подразделение</dataPath>
-				<field>Подразделение</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто1</dataPath>
-				<field>КорСубконто1</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто2</dataPath>
-				<field>КорСубконто2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто3</dataPath>
-				<field>КорСубконто3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ВалютаКор</dataPath>
-				<field>ВалютаКор</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ПодразделениеКор</dataPath>
-				<field>ПодразделениеКор</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСчет</dataPath>
-				<field>КорСчет</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Приход</dataPath>
-				<field>Приход</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Приход</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Расход</dataPath>
-				<field>Расход</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Расход</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<dataSource>ИсточникДанных1</dataSource>
-			<query>ВЫБРАТЬ
-	"Пост22" КАК Пост22,
-	УправленческийОбороты.КорСубконто1 КАК Пост22Касса,  
-	ВЫБОР КОГДА (СУММА(УправленческийОбороты.СуммаОборотКт) - СУММА(УправленческийОбороты.СуммаОборотДт)) &gt; 0 ТОГДА (СУММА(УправленческийОбороты.СуммаОборотКт) - СУММА(УправленческийОбороты.СуммаОборотДт)) ИНАЧЕ 0 КОНЕЦ КАК Приход,
-	ВЫБОР КОГДА (СУММА(УправленческийОбороты.СуммаОборотДт) - СУММА(УправленческийОбороты.СуммаОборотКт)) &gt; 0 ТОГДА (СУММА(УправленческийОбороты.СуммаОборотДт) - СУММА(УправленческийОбороты.СуммаОборотКт)) ИНАЧЕ 0 КОНЕЦ КАК Расход
-ИЗ
-	РегистрБухгалтерии.Управленческий.Обороты(
-			&amp;ДатаНачала,
-			&amp;ДатаОкончания,
-			Регистратор,
-			Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Поставщики)),
-			,
-			Субконто1 В (&amp;ВыбПоставкики)
-				И КорСубконто1 В (&amp;СписокКасс),
-			КорСчет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса)),
-			) КАК УправленческийОбороты
-
-СГРУППИРОВАТЬ ПО
-	УправленческийОбороты.КорСубконто1</query>
-		</item>
-		<item xsi:type="DataSetQuery">
-			<name>Возвраты</name>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Счет</dataPath>
-				<field>Счет</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто1</dataPath>
-				<field>Субконто1</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СтатьяДвижения</dataPath>
-				<field>СтатьяДвижения</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Статья движения</v8:content>
-					</v8:item>
-				</title>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто2</dataPath>
-				<field>Субконто2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Валюта</dataPath>
-				<field>Валюта</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто3</dataPath>
-				<field>Субконто3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Подразделение</dataPath>
-				<field>Подразделение</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Возвраты</dataPath>
-				<field>Возвраты</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Возвраты</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ВозвратКасса</dataPath>
-				<field>ВозвратКасса</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Возврат касса</v8:content>
-					</v8:item>
-				</title>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Расход</dataPath>
-				<field>Расход</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Расход</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<dataSource>ИсточникДанных1</dataSource>
-			<query>ВЫБРАТЬ
-	"Возвраты" КАК Возвраты,
-	УправленческийОстаткиИОбороты.Субконто1 КАК ВозвратКасса,
-	УправленческийОстаткиИОбороты.Субконто2 КАК СтатьяДвижения,
-	УправленческийОстаткиИОбороты.СуммаОборотКт КАК Расход
-ИЗ
-	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(
-			&amp;ДатаНачала,
-			&amp;ДатаОкончания,
-			Регистратор,
-			,
-			Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса)),
-			,
-			Субконто1 В (&amp;СписокКасс)
-				И Субконто2 = &amp;ДДСВозврат) КАК УправленческийОстаткиИОбороты</query>
-		</item>
-		<item xsi:type="DataSetQuery">
-			<name>Приходы51</name>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто2</dataPath>
-				<field>Субконто2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Валюта</dataPath>
-				<field>Валюта</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто3</dataPath>
-				<field>Субконто3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто1</dataPath>
-				<field>КорСубконто1</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Счет</dataPath>
-				<field>Счет</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто1</dataPath>
-				<field>Субконто1</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Подразделение</dataPath>
-				<field>Подразделение</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто2</dataPath>
-				<field>КорСубконто2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто3</dataPath>
-				<field>КорСубконто3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ВалютаКор</dataPath>
-				<field>ВалютаКор</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ПодразделениеКор</dataPath>
-				<field>ПодразделениеКор</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСчет</dataPath>
-				<field>КорСчет</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Приход51Касса</dataPath>
-				<field>Приход51Касса</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Приход51 касса</v8:content>
-					</v8:item>
-				</title>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Приход51</dataPath>
-				<field>Приход51</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Приход51</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Приход</dataPath>
-				<field>Приход</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Приход</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<dataSource>ИсточникДанных1</dataSource>
-			<query>ВЫБРАТЬ
-	"Расшифровка 51" КАК Приход51,
-	УправленческийОбороты.Субконто1 КАК Приход51Касса,
-	УправленческийОбороты.СуммаОборотДт КАК Приход
-ИЗ
-	РегистрБухгалтерии.Управленческий.Обороты(
-			&amp;ДатаНачала,
-			&amp;ДатаОкончания,
-			Авто,
-			Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Банк)),
-			,
-			НЕ Субконто1 В ИЕРАРХИИ (&amp;РСПерсП20)
-				И КорСубконто1 В (&amp;СписокКасс),
-			КорСчет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса)),
-			) КАК УправленческийОбороты
-
-ОБЪЕДИНИТЬ ВСЕ
-
-ВЫБРАТЬ
-	"Расшифровка 51",
-	"Жасмин",
-	КассовыеОперацииСтрокиДокумента.СуммаПрихода
-ИЗ
-	Документ.КассовыеОперации.СтрокиДокумента КАК КассовыеОперацииСтрокиДокумента
-ГДЕ
-	КассовыеОперацииСтрокиДокумента.НаправлениеДвижения = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыОперацийИДвиженийДокументов.КассовыеОперации_Поступление)
-	И КассовыеОперацииСтрокиДокумента.ВидДвижения = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыОперацийИДвиженийДокументов.КассовыеОперации_Поступление_ОтПокупателя)
-	И КассовыеОперацииСтрокиДокумента.Объект = &amp;ПокупательРеализация
-	И КассовыеОперацииСтрокиДокумента.Подразделение В(&amp;ПодразделенияЖсмн)
-	И КассовыеОперацииСтрокиДокумента.Ссылка.Проведен
-	И КассовыеОперацииСтрокиДокумента.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
-</query>
-		</item>
-		<item xsi:type="DataSetQuery">
-			<name>РасшифровкаПеремещения</name>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>РП</dataPath>
-				<field>РП</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>РП</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Расход</dataPath>
-				<field>Расход</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Расход</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Приход</dataPath>
-				<field>Приход</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Приход</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>РПКасса</dataPath>
-				<field>РПКасса</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>РПКасса</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<dataSource>ИсточникДанных1</dataSource>
-			<query>ВЫБРАТЬ
-	"Расшифровка перемещений" КАК РП,
-	КассовыеОперацииСтрокиДокумента.СуммаРасхода КАК Расход,
-	КассовыеОперацииСтрокиДокумента.СуммаПрихода КАК Приход,
-//	КассовыеОперацииСтрокиДокумента.Ссылка.Касса КАК Касса,
-	КассовыеОперацииСтрокиДокумента.Объект КАК РПКасса
-ИЗ
-	Документ.КассовыеОперации.СтрокиДокумента КАК КассовыеОперацииСтрокиДокумента
-ГДЕ
-	КассовыеОперацииСтрокиДокумента.Ссылка.Проведен
-	И КассовыеОперацииСтрокиДокумента.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
-	И КассовыеОперацииСтрокиДокумента.ВидДвижения = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыОперацийИДвиженийДокументов.КассовыеОперации_Платеж_ВДругуюКассу)
-	И КассовыеОперацииСтрокиДокумента.СтатьяДвиженияДенег = ЗНАЧЕНИЕ(Справочник.СтатьиДвиженияДенег.ВнутренниеПеремещения)
-	И КассовыеОперацииСтрокиДокумента.Ссылка.Касса В(&amp;СписокКасс)
-
-ОБЪЕДИНИТЬ ВСЕ
-
-ВЫБРАТЬ
-	"Расшифровка перемещений",
-	КассовыеОперацииСтрокиДокумента.СуммаПрихода,
-	КассовыеОперацииСтрокиДокумента.СуммаРасхода,
-//	КассовыеОперацииСтрокиДокумента.Объект,
-	КассовыеОперацииСтрокиДокумента.Ссылка.Касса
-ИЗ
-	Документ.КассовыеОперации.СтрокиДокумента КАК КассовыеОперацииСтрокиДокумента
-ГДЕ
-	КассовыеОперацииСтрокиДокумента.Ссылка.Проведен
-	И КассовыеОперацииСтрокиДокумента.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
-	И КассовыеОперацииСтрокиДокумента.ВидДвижения = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыОперацийИДвиженийДокументов.КассовыеОперации_Платеж_ВДругуюКассу)
-	И КассовыеОперацииСтрокиДокумента.СтатьяДвиженияДенег = ЗНАЧЕНИЕ(Справочник.СтатьиДвиженияДенег.ВнутренниеПеремещения)
-	И КассовыеОперацииСтрокиДокумента.Объект В(&amp;СписокКасс)</query>
-		</item>
-		<item xsi:type="DataSetQuery">
-			<name>ПерсП20</name>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Подразделение</dataPath>
-				<field>Подразделение</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто3</dataPath>
-				<field>Субконто3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Счет</dataPath>
-				<field>Счет</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто1</dataPath>
-				<field>Субконто1</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто2</dataPath>
-				<field>Субконто2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Валюта</dataPath>
-				<field>Валюта</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто1</dataPath>
-				<field>КорСубконто1</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто2</dataPath>
-				<field>КорСубконто2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто3</dataPath>
-				<field>КорСубконто3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ВалютаКор</dataPath>
-				<field>ВалютаКор</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ПодразделениеКор</dataPath>
-				<field>ПодразделениеКор</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСчет</dataPath>
-				<field>КорСчет</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ПП20Группа</dataPath>
-				<field>ПП20Группа</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>П п20 группа</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ПП20РСчет</dataPath>
-				<field>ПП20РСчет</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>П п20 р счет</v8:content>
-					</v8:item>
-				</title>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Приход</dataPath>
-				<field>Приход</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Приход</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ПП20</dataPath>
-				<field>ПП20</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>П п20</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<dataSource>ИсточникДанных1</dataSource>
-			<query>ВЫБРАТЬ
-	"_" КАК ПП20,
-	"Перс" КАК ПП20Группа,
-	УправленческийОбороты.Субконто1 КАК ПП20РСчет,
-	УправленческийОбороты.СуммаОборотДт КАК Приход
-ИЗ
-	РегистрБухгалтерии.Управленческий.Обороты(
-			&amp;ДатаНачала,
-			&amp;ДатаОкончания,
-			Авто,
-			Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Банк)),
-			,
-			Субконто1 В ИЕРАРХИИ (&amp;ВыбПерсы)
-				И КорСубконто1 В (&amp;СписокКасс),
-			КорСчет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса)),
-			) КАК УправленческийОбороты
-
-СГРУППИРОВАТЬ ПО
-	УправленческийОбороты.Субконто1,
-	УправленческийОбороты.СуммаОборотДт
-
-ОБЪЕДИНИТЬ ВСЕ
-
-ВЫБРАТЬ
-	"",
-	"П20",
-	УправленческийОбороты.Субконто1,
-	УправленческийОбороты.СуммаОборотДт
-ИЗ
-	РегистрБухгалтерии.Управленческий.Обороты(
-			&amp;ДатаНачала,
-			&amp;ДатаОкончания,
-			Авто,
-			Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Банк)),
-			,
-			Субконто1 В ИЕРАРХИИ (&amp;ВыбП20)
-				И КорСубконто1 В (&amp;СписокКасс),
-			КорСчет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса)),
-			) КАК УправленческийОбороты
-
-СГРУППИРОВАТЬ ПО
-	УправленческийОбороты.Субконто1,
-	УправленческийОбороты.СуммаОборотДт
-</query>
-		</item>
 	</dataSet>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>РасшифровкаДепонент</destinationDataSet>
+		<sourceExpression>Раздел</sourceExpression>
+		<destinationExpression>РасшифровкаДепонент</destinationExpression>
+	</dataSetLink>
 	<totalField>
 		<dataPath>Приход</dataPath>
 		<expression>Сумма(Приход)</expression>
@@ -2371,6 +2348,24 @@
 		<group>ПП20</group>
 		<group>ПП20Группа</group>
 		<group>ПП20РСчет</group>
+	</totalField>
+	<totalField>
+		<dataPath>Расход</dataPath>
+		<expression>Сумма(Расход)</expression>
+		<group>Приход51</group>
+		<group>Приход51Касса</group>
+	</totalField>
+	<totalField>
+		<dataPath>Расход</dataPath>
+		<expression>Сумма(Расход)</expression>
+		<group>ПП20</group>
+		<group>ПП20Группа</group>
+		<group>ПП20РСчет</group>
+	</totalField>
+	<totalField>
+		<dataPath>Итог</dataPath>
+		<expression>Свернуть(ТаблицаЗначений(РасшифровкаСодержание, РасшифровкаСумма), "1")</expression>
+		<group>Раздел</group>
 	</totalField>
 	<parameter>
 		<name>СтПериод</name>
@@ -3012,30 +3007,9 @@
 			</v8:item>
 		</title>
 		<valueType>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.РасчетныеСчета</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ВидыБизнеса</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.РозничныеПродажи</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПроизводствоДлительныйЦикл</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Кассы</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Склады</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Сотрудники</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтатьиДвиженияДенег</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.КомплектацияТоваров</v8:Type>
 			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Финагенты</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПроизводствоКороткийЦикл</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Поставщики</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ВидыНалогов</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтатьиРасходов</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Имущество</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыРасходовПодразделений</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ЦенныеБумаги</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ОприходованиеТоваров</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Номенклатура</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Покупатели</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПоступлениеТоваровИРасходов</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ОтчетПодотчетника</v8:Type>
 		</valueType>
-		<value xsi:type="xs:string">8b7c09e9-7e11-11ea-8100-00155dcde101</value>
+		<value xsi:nil="true"/>
 		<useRestriction>true</useRestriction>
 	</parameter>
 	<parameter>
@@ -3047,30 +3021,9 @@
 			</v8:item>
 		</title>
 		<valueType>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.РасчетныеСчета</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ВидыБизнеса</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.РозничныеПродажи</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПроизводствоДлительныйЦикл</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Кассы</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Склады</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Сотрудники</v8:Type>
 			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтатьиДвиженияДенег</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.КомплектацияТоваров</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Финагенты</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПроизводствоКороткийЦикл</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Поставщики</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ВидыНалогов</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтатьиРасходов</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Имущество</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыРасходовПодразделений</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ЦенныеБумаги</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ОприходованиеТоваров</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Номенклатура</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Покупатели</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПоступлениеТоваровИРасходов</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ОтчетПодотчетника</v8:Type>
 		</valueType>
-		<value xsi:type="xs:string">9f52ac9b-6e7e-11ea-980c-00ac0ece7300</value>
+		<value xsi:nil="true"/>
 		<useRestriction>true</useRestriction>
 	</parameter>
 	<parameter>
@@ -3224,6 +3177,16 @@
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>КонтрагентК72</dcscor:parameter>
 					<dcscor:value xsi:type="xs:string">4ee6068d-e843-11ea-8108-00155dcde101</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ФинагентДепонент</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">8b7c09e9-7e11-11ea-8100-00155dcde101</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ДДСВыручка</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">9f52ac9b-6e7e-11ea-980c-00ac0ece7300</dcscor:value>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>
@@ -4027,9 +3990,7 @@
 							</dcsset:item>
 						</dcsset:groupItems>
 						<dcsset:order>
-							<dcsset:item xsi:type="dcsset:OrderItemAuto">
-								<dcsset:use>false</dcsset:use>
-							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 						</dcsset:order>
 						<dcsset:selection>
 							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
