@@ -3183,7 +3183,13 @@
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Итог</dcsset:field>
 				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>1ea8cf0e-705e-4af9-9356-db931e387789</dcsset:userSettingID>
 			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>4df17905-ba93-4052-994b-695378934c04</dcsset:userSettingID>
+			</dcsset:filter>
 			<dcsset:dataParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>СтПериод</dcscor:parameter>
@@ -3196,8 +3202,7 @@
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>СписокКасс</dcscor:parameter>
-					<dcscor:value xsi:type="xs:string">abfe2d85-960e-11eb-8126-00155dcde101</dcscor:value>
-					<dcscor:value xsi:type="xs:string">1fdff2ae-95f0-11eb-8126-00155dcde101</dcscor:value>
+					<dcscor:value xsi:nil="true"/>
 					<dcsset:userSettingID>235f0fa3-6a1f-4c96-9991-dee6fe66257c</dcsset:userSettingID>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
@@ -3221,6 +3226,10 @@
 					<dcscor:value xsi:type="xs:string">4ee6068d-e843-11ea-8108-00155dcde101</dcscor:value>
 				</dcscor:item>
 			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>f63ba727-80a4-4913-9ded-8c97243d763c</dcsset:userSettingID>
+			</dcsset:order>
 			<dcsset:conditionalAppearance>
 				<dcsset:item>
 					<dcsset:selection/>
@@ -3485,6 +3494,8 @@
 					<dcsset:useInParameters>DontUse</dcsset:useInParameters>
 					<dcsset:useInFilter>DontUse</dcsset:useInFilter>
 				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>34fd0a52-73ff-427a-8107-481b76c2d2e8</dcsset:userSettingID>
 			</dcsset:conditionalAppearance>
 			<dcsset:outputParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
@@ -4080,6 +4091,7 @@
 					</dcsset:item>
 				</dcsset:row>
 			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
 		</dcsset:settings>
 	</settingsVariant>
 </DataCompositionSchema>
