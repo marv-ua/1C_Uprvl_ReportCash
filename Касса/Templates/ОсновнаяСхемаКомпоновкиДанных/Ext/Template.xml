@@ -1208,50 +1208,97 @@
 	
 	ОБЪЕДИНИТЬ ВСЕ
 	
-	ВЫБРАТЬ
-		"Мальч",
-		NULL,
-		NULL,
-		NULL,
-		0,
-		ВЫБОР
-			КОГДА Мальчики.Приход - Мальчики.Расход &gt; 0
-				ТОГДА Мальчики.Приход - Мальчики.Расход
-			ИНАЧЕ 0
-		КОНЕЦ,
-		ВЫБОР
-			КОГДА Мальчики.Расход - Мальчики.Приход &gt; 0
-				ТОГДА Мальчики.Расход - Мальчики.Приход
-			ИНАЧЕ 0
-		КОНЕЦ,
-		0,
-		0,
-		"ПриходРасход"
+ВЫБРАТЬ
+	"Мальч",
+	NULL,
+	NULL,
+	NULL,
+	0,
+	ВЫБОР
+		КОГДА Мальчики.Приход - Мальчики.Расход &gt; 0
+			ТОГДА Мальчики.Приход - Мальчики.Расход
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА Мальчики.Расход - Мальчики.Приход &gt; 0
+			ТОГДА Мальчики.Расход - Мальчики.Приход
+		ИНАЧЕ 0
+	КОНЕЦ,
+	0,
+	0,
+	"ПриходРасход"
+ИЗ
+	(ВЫБРАТЬ
+		СУММА(Мальч.СуммаОборотДт) КАК Приход,
+		СУММА(Мальч.СуммаОборотКт) КАК Расход
 	ИЗ
 		(ВЫБРАТЬ
-			СУММА(Мальч.СуммаОборотДт) КАК Приход,
-			СУММА(Мальч.СуммаОборотКт) КАК Расход
+			УправленческийОбороты.Счет КАК Счет,
+			УправленческийОбороты.Субконто1 КАК Субконто1,
+			УправленческийОбороты.КорСчет КАК КорСчет,
+			УправленческийОбороты.КорСубконто1 КАК КорСубконто1,
+			УправленческийОбороты.СуммаОборотДт - УправленческийОбороты.СуммаОборотКт  КАК СуммаОборотДт,
+			УправленческийОбороты.Регистратор КАК Документ,
+			0 КАК СуммаОборотКт
 		ИЗ
-			(ВЫБРАТЬ
-				УправленческийОбороты.Счет КАК Счет,
-				УправленческийОбороты.Субконто1 КАК Субконто1,
-				УправленческийОбороты.КорСчет КАК КорСчет,
-				УправленческийОбороты.КорСубконто1 КАК КорСубконто1,
-				УправленческийОбороты.СуммаОборотДт КАК СуммаОборотДт,
-				УправленческийОбороты.Регистратор КАК Документ,
-				УправленческийОбороты.СуммаОборотКт КАК СуммаОборотКт
-			ИЗ
-				РегистрБухгалтерии.Управленческий.Обороты(
-						&amp;ДатаНачала,
-						&amp;ДатаОкончания,
-						Авто,
-						Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ФИНАГЕНТЫ)),
-						,
-						Субконто1 В ИЕРАРХИИ (&amp;ВыбКонтрагентМальч)
-							И (КорСубконто1 В (&amp;СписокКасс)
-								ИЛИ КорСубконто1 В (&amp;ВыбФинагент, &amp;КассаПчелка)),
-						,
-						) КАК УправленческийОбороты) КАК Мальч) КАК Мальчики
+			РегистрБухгалтерии.Управленческий.Обороты(
+					&amp;ДатаНачала,
+					&amp;ДатаОкончания,
+					Авто,
+					Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ФИНАГЕНТЫ)),
+					,
+					Субконто1 В ИЕРАРХИИ (&amp;ВыбКонтрагентМальч)
+						И КорСубконто1 В (&amp;СписокКасс),
+					,
+					) КАК УправленческийОбороты
+						
+Объединить все						
+ВЫБРАТЬ
+			УправленческийОбороты.Счет КАК Счет,
+			УправленческийОбороты.Субконто1 КАК Субконто1,
+			УправленческийОбороты.КорСчет КАК КорСчет,
+			УправленческийОбороты.КорСубконто1 КАК КорСубконто1,
+			УправленческийОбороты.СуммаОборотДт - УправленческийОбороты.СуммаОборотКт  КАК СуммаОборотДт,
+			УправленческийОбороты.Регистратор КАК Документ,
+			0 КАК СуммаОборотКт
+		ИЗ
+			РегистрБухгалтерии.Управленческий.Обороты(
+					&amp;ДатаНачала,
+					&amp;ДатаОкончания,
+					Авто,
+					Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ФИНАГЕНТЫ)),
+					,
+					Субконто1 В ИЕРАРХИИ (&amp;ВыбКонтрагентМальч)
+						И КорСубконто1 В ИЕРАРХИИ(&amp;КассаПчелка),
+					,
+					) КАК УправленческийОбороты
+Объединить все						
+ВЫБРАТЬ
+			УправленческийОбороты.Счет КАК Счет,
+			УправленческийОбороты.Субконто1 КАК Субконто1,
+			УправленческийОбороты.КорСчет КАК КорСчет,
+			УправленческийОбороты.КорСубконто1 КАК КорСубконто1,
+			УправленческийОбороты.СуммаОборотДт - УправленческийОбороты.СуммаОборотКт  КАК СуммаОборотДт,
+			УправленческийОбороты.Регистратор КАК Документ,
+			0 КАК СуммаОборотКт
+		ИЗ
+			РегистрБухгалтерии.Управленческий.Обороты(
+					&amp;ДатаНачала,
+					&amp;ДатаОкончания,
+					Авто,
+					Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ФИНАГЕНТЫ)),
+					,
+					Субконто1 В ИЕРАРХИИ (&amp;ВыбКонтрагентМальч)
+						И КорСубконто1 В (&amp;ВыбФинагент),
+					,
+					) КАК УправленческийОбороты
+					
+						
+						
+						
+						) КАК Мальч) КАК Мальчики
+
+
 	
 	ОБЪЕДИНИТЬ ВСЕ
 	
@@ -1681,22 +1728,23 @@
 				КорСчет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса)),
 				) КАК УправленческийОбороты
 	
-	ОБЪЕДИНИТЬ ВСЕ
-	
-	ВЫБРАТЬ
-		"Расшифровка 51",
-		"Жасмин",
-		КассовыеОперацииСтрокиДокумента.СуммаПрихода,
-		КассовыеОперацииСтрокиДокумента.СуммаРасхода
-	ИЗ
-		Документ.КассовыеОперации.СтрокиДокумента КАК КассовыеОперацииСтрокиДокумента
-	ГДЕ
-		КассовыеОперацииСтрокиДокумента.НаправлениеДвижения = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыОперацийИДвиженийДокументов.КассовыеОперации_Поступление)
-		И КассовыеОперацииСтрокиДокумента.ВидДвижения = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыОперацийИДвиженийДокументов.КассовыеОперации_Поступление_ОтПокупателя)
-		И КассовыеОперацииСтрокиДокумента.Объект = &amp;ПокупательРеализация
-		И КассовыеОперацииСтрокиДокумента.Подразделение В(&amp;ПодразделенияЖсмн)
-		И КассовыеОперацииСтрокиДокумента.Ссылка.Проведен
-		И КассовыеОперацииСтрокиДокумента.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания) КАК Универсам
+//	ОБЪЕДИНИТЬ ВСЕ
+//	
+//	ВЫБРАТЬ
+//		"Расшифровка 51",
+//		"Жасмин",
+//		КассовыеОперацииСтрокиДокумента.СуммаПрихода,
+//		КассовыеОперацииСтрокиДокумента.СуммаРасхода
+//	ИЗ
+//		Документ.КассовыеОперации.СтрокиДокумента КАК КассовыеОперацииСтрокиДокумента
+//	ГДЕ
+//		КассовыеОперацииСтрокиДокумента.НаправлениеДвижения = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыОперацийИДвиженийДокументов.КассовыеОперации_Поступление)
+//		И КассовыеОперацииСтрокиДокумента.ВидДвижения = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыОперацийИДвиженийДокументов.КассовыеОперации_Поступление_ОтПокупателя)
+//		И КассовыеОперацииСтрокиДокумента.Объект = &amp;ПокупательРеализация
+//		И КассовыеОперацииСтрокиДокумента.Подразделение В(&amp;ПодразделенияЖсмн)
+//		И КассовыеОперацииСтрокиДокумента.Ссылка.Проведен
+//		И КассовыеОперацииСтрокиДокумента.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		) КАК Универсам
 
 ОБЪЕДИНИТЬ ВСЕ
 
@@ -2500,22 +2548,22 @@
 			КорСчет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса)),
 			) КАК УправленческийОбороты
 
-ОБЪЕДИНИТЬ ВСЕ
-
-ВЫБРАТЬ
-	"Расшифровка 51",
-	"Жасмин",
-	КассовыеОперацииСтрокиДокумента.СуммаПрихода,
-	КассовыеОперацииСтрокиДокумента.СуммаРасхода
-ИЗ
-	Документ.КассовыеОперации.СтрокиДокумента КАК КассовыеОперацииСтрокиДокумента
-ГДЕ
-	КассовыеОперацииСтрокиДокумента.НаправлениеДвижения = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыОперацийИДвиженийДокументов.КассовыеОперации_Поступление)
-	И КассовыеОперацииСтрокиДокумента.ВидДвижения = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыОперацийИДвиженийДокументов.КассовыеОперации_Поступление_ОтПокупателя)
-	И КассовыеОперацииСтрокиДокумента.Объект = &amp;ПокупательРеализация
-	И КассовыеОперацииСтрокиДокумента.Подразделение В(&amp;ПодразделенияЖсмн)
-	И КассовыеОперацииСтрокиДокумента.Ссылка.Проведен
-	И КассовыеОперацииСтрокиДокумента.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания</query>
+//ОБЪЕДИНИТЬ ВСЕ
+//
+//ВЫБРАТЬ
+//	"Расшифровка 51",
+//	"Жасмин",
+//	КассовыеОперацииСтрокиДокумента.СуммаПрихода,
+//	КассовыеОперацииСтрокиДокумента.СуммаРасхода
+//ИЗ
+//	Документ.КассовыеОперации.СтрокиДокумента КАК КассовыеОперацииСтрокиДокумента
+//ГДЕ
+//	КассовыеОперацииСтрокиДокумента.НаправлениеДвижения = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыОперацийИДвиженийДокументов.КассовыеОперации_Поступление)
+//	И КассовыеОперацииСтрокиДокумента.ВидДвижения = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыОперацийИДвиженийДокументов.КассовыеОперации_Поступление_ОтПокупателя)
+//	И КассовыеОперацииСтрокиДокумента.Объект = &amp;ПокупательРеализация
+//	И КассовыеОперацииСтрокиДокумента.Подразделение В(&amp;ПодразделенияЖсмн)
+//	И КассовыеОперацииСтрокиДокумента.Ссылка.Проведен
+//	И КассовыеОперацииСтрокиДокумента.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания</query>
 		</item>
 		<item xsi:type="DataSetQuery">
 			<name>РасшифровкаПеремещения</name>
@@ -2878,16 +2926,6 @@
 				<field>СуммаОборотКт</field>
 			</field>
 			<field xsi:type="DataSetFieldField">
-				<dataPath>Документ</dataPath>
-				<field>Документ</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Документ</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
 				<dataPath>СуммаОборотДт</dataPath>
 				<field>СуммаОборотДт</field>
 			</field>
@@ -2998,6 +3036,16 @@
 					<v8:item>
 						<v8:lang>ru</v8:lang>
 						<v8:content>Поле5</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Документ</dataPath>
+				<field>Документ</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Документ</v8:content>
 					</v8:item>
 				</title>
 			</field>
@@ -3251,16 +3299,18 @@
 	NULL,
 	NULL,
 	NULL,
-	ВЫБОР
-		КОГДА Ячейка.СуммаДт - Ячейка.СуммаКт &gt; 0
-			ТОГДА Ячейка.СуммаДт - Ячейка.СуммаКт
-		ИНАЧЕ 0
-	КОНЕЦ,
-	ВЫБОР
-		КОГДА Ячейка.СуммаКт - Ячейка.СуммаДт &gt; 0
-			ТОГДА Ячейка.СуммаКт - Ячейка.СуммаДт
-		ИНАЧЕ 0
-	КОНЕЦ,
+//	ВЫБОР
+//		КОГДА Ячейка.СуммаДт - Ячейка.СуммаКт &gt; 0
+//			ТОГДА Ячейка.СуммаДт - Ячейка.СуммаКт
+//		ИНАЧЕ 0
+//	КОНЕЦ,
+0,
+//	ВЫБОР
+//		КОГДА Ячейка.СуммаКт - Ячейка.СуммаДт &gt; 0
+//			ТОГДА Ячейка.СуммаКт - Ячейка.СуммаДт
+//		ИНАЧЕ 0
+//	КОНЕЦ,
+0,
 	0,
 	0,
 	0,
@@ -3386,9 +3436,9 @@
 			УправленческийОбороты.Субконто1 КАК Субконто1,
 			УправленческийОбороты.КорСчет КАК КорСчет,
 			УправленческийОбороты.КорСубконто1 КАК КорСубконто1,
-			УправленческийОбороты.СуммаОборотДт КАК СуммаОборотДт,
+			УправленческийОбороты.СуммаОборотДт - УправленческийОбороты.СуммаОборотКт  КАК СуммаОборотДт,
 			УправленческийОбороты.Регистратор КАК Документ,
-			УправленческийОбороты.СуммаОборотКт КАК СуммаОборотКт
+			0 КАК СуммаОборотКт
 		ИЗ
 			РегистрБухгалтерии.Управленческий.Обороты(
 					&amp;ДатаНачала,
@@ -3397,10 +3447,55 @@
 					Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ФИНАГЕНТЫ)),
 					,
 					Субконто1 В ИЕРАРХИИ (&amp;ВыбКонтрагентМальч)
-						И (КорСубконто1 В (&amp;СписокКасс)
-							ИЛИ КорСубконто1 В (&amp;ВыбФинагент, &amp;КассаПчелка)),
+						И КорСубконто1 В (&amp;СписокКасс),
 					,
-					) КАК УправленческийОбороты) КАК Мальч) КАК Мальчики
+					) КАК УправленческийОбороты
+						
+Объединить все						
+ВЫБРАТЬ
+			УправленческийОбороты.Счет КАК Счет,
+			УправленческийОбороты.Субконто1 КАК Субконто1,
+			УправленческийОбороты.КорСчет КАК КорСчет,
+			УправленческийОбороты.КорСубконто1 КАК КорСубконто1,
+			УправленческийОбороты.СуммаОборотДт - УправленческийОбороты.СуммаОборотКт  КАК СуммаОборотДт,
+			УправленческийОбороты.Регистратор КАК Документ,
+			0 КАК СуммаОборотКт
+		ИЗ
+			РегистрБухгалтерии.Управленческий.Обороты(
+					&amp;ДатаНачала,
+					&amp;ДатаОкончания,
+					Авто,
+					Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ФИНАГЕНТЫ)),
+					,
+					Субконто1 В ИЕРАРХИИ (&amp;ВыбКонтрагентМальч)
+						И КорСубконто1 В ИЕРАРХИИ(&amp;КассаПчелка),
+					,
+					) КАК УправленческийОбороты
+Объединить все						
+ВЫБРАТЬ
+			УправленческийОбороты.Счет КАК Счет,
+			УправленческийОбороты.Субконто1 КАК Субконто1,
+			УправленческийОбороты.КорСчет КАК КорСчет,
+			УправленческийОбороты.КорСубконто1 КАК КорСубконто1,
+			УправленческийОбороты.СуммаОборотДт - УправленческийОбороты.СуммаОборотКт  КАК СуммаОборотДт,
+			УправленческийОбороты.Регистратор КАК Документ,
+			0 КАК СуммаОборотКт
+		ИЗ
+			РегистрБухгалтерии.Управленческий.Обороты(
+					&amp;ДатаНачала,
+					&amp;ДатаОкончания,
+					Авто,
+					Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ФИНАГЕНТЫ)),
+					,
+					Субконто1 В ИЕРАРХИИ (&amp;ВыбКонтрагентМальч)
+						И КорСубконто1 В (&amp;ВыбФинагент),
+					,
+					) КАК УправленческийОбороты
+					
+						
+						
+						
+						) КАК Мальч) КАК Мальчики
 
 ОБЪЕДИНИТЬ ВСЕ
 
@@ -3709,6 +3804,16 @@
 		<sourceExpression>Раздел</sourceExpression>
 		<destinationExpression>РасшифровкаДепонент</destinationExpression>
 	</dataSetLink>
+	<calculatedField>
+		<dataPath>допИтог</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Доп итог</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
 	<totalField>
 		<dataPath>Приход</dataPath>
 		<expression>Сумма(Приход)</expression>
@@ -3857,7 +3962,22 @@
 	</totalField>
 	<totalField>
 		<dataPath>Итог</dataPath>
-		<expression>Строка(Сумма(ВычислитьВыражениеСГруппировкойМассив("Сумма(СуммаНачальныйОстаток) + Сумма(Приход) - Сумма(Расход)","Касса",))) + " Δ: " + Строка(Сумма(ВычислитьВыражениеСГруппировкойМассив("Сумма(СуммаКонечныйОстаток) - (Сумма(СуммаНачальныйОстаток) + Сумма(Приход) - Сумма(Расход))","Касса",)))
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Сумма(СуммаНачальныйОстаток) + Сумма(Приход) - Сумма(Расход)","Касса",))
+
+
+</expression>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<totalField>
+		<dataPath>Итог</dataPath>
+		<expression>0</expression>
+		<group>Касса</group>
+	</totalField>
+	<totalField>
+		<dataPath>допИтог</dataPath>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Сумма(СуммаКонечныйОстаток) - (Сумма(СуммаНачальныйОстаток) + Сумма(Приход) - Сумма(Расход))","Касса",))
+
+
 </expression>
 		<group>ОбщийИтог</group>
 	</totalField>
@@ -4292,6 +4412,36 @@
 		<value xsi:type="xs:string">7b6b8cd9-3531-11eb-8117-00155dcde101</value>
 		<useRestriction>true</useRestriction>
 	</parameter>
+	<parameter>
+		<name>КаасаПчелка</name>
+		<title xsi:type="xs:string">Кааса пчелка</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.РасчетныеСчета</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ВидыБизнеса</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.РозничныеПродажи</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПроизводствоДлительныйЦикл</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Кассы</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Склады</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Сотрудники</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтатьиДвиженияДенег</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.КомплектацияТоваров</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Финагенты</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПроизводствоКороткийЦикл</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Поставщики</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ВидыНалогов</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтатьиРасходов</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Имущество</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыРасходовПодразделений</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ЦенныеБумаги</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ОприходованиеТоваров</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Номенклатура</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Покупатели</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПоступлениеТоваровИРасходов</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ОтчетПодотчетника</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
 		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
@@ -4312,6 +4462,10 @@
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Итог</dcsset:field>
 				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>допИтог</dcsset:field>
+					<dcsset:title> </dcsset:title>
+				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>1ea8cf0e-705e-4af9-9356-db931e387789</dcsset:userSettingID>
 			</dcsset:selection>
@@ -4331,28 +4485,9 @@
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>СписокКасс</dcscor:parameter>
-					<dcscor:value xsi:nil="true"/>
+					<dcscor:value xsi:type="xs:string">abfe2d85-960e-11eb-8126-00155dcde101</dcscor:value>
+					<dcscor:value xsi:type="xs:string">1fdff2ae-95f0-11eb-8126-00155dcde101</dcscor:value>
 					<dcsset:userSettingID>235f0fa3-6a1f-4c96-9991-dee6fe66257c</dcsset:userSettingID>
-				</dcscor:item>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:parameter>СтатьяДДСДепонент</dcscor:parameter>
-					<dcscor:value xsi:type="xs:string">98fd6561-7e11-11ea-8100-00155dcde101</dcscor:value>
-				</dcscor:item>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:parameter>ВыбФинагент</dcscor:parameter>
-					<dcscor:value xsi:type="xs:string">59c76173-75aa-11ea-80ff-00155dcde101</dcscor:value>
-				</dcscor:item>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:parameter>КассаПчелка</dcscor:parameter>
-					<dcscor:value xsi:type="xs:string">626642b4-71b5-11ea-80ff-00155dcde101</dcscor:value>
-				</dcscor:item>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:parameter>ВыбКонтрагентКредиты</dcscor:parameter>
-					<dcscor:value xsi:type="xs:string">1a72710a-9730-11ea-8102-00155dcde101</dcscor:value>
-				</dcscor:item>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:parameter>КонтрагентК72</dcscor:parameter>
-					<dcscor:value xsi:type="xs:string">4ee6068d-e843-11ea-8108-00155dcde101</dcscor:value>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>
@@ -4934,6 +5069,70 @@
 				<dcsset:row>
 					<dcsset:groupItems>
 						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Пост22</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Пост22</dcsset:left>
+							<dcsset:comparisonType>Filled</dcsset:comparisonType>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Пост22Касса</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto">
+								<dcsset:use>false</dcsset:use>
+							</dcsset:item>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:outputParameters>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:use>false</dcscor:use>
+								<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:use>false</dcscor:use>
+								<dcscor:parameter>Заголовок</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">Пост22</dcscor:value>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+							</dcscor:item>
+						</dcsset:outputParameters>
+					</dcsset:item>
+				</dcsset:row>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
 							<dcsset:field>Реализация</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
@@ -4993,70 +5192,6 @@
 								<dcscor:use>false</dcscor:use>
 								<dcscor:parameter>Заголовок</dcscor:parameter>
 								<dcscor:value xsi:type="xs:string">Реализация</dcscor:value>
-							</dcscor:item>
-							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-								<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
-								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
-							</dcscor:item>
-						</dcsset:outputParameters>
-					</dcsset:item>
-				</dcsset:row>
-				<dcsset:row>
-					<dcsset:groupItems>
-						<dcsset:item xsi:type="dcsset:GroupItemField">
-							<dcsset:field>Пост22</dcsset:field>
-							<dcsset:groupType>Items</dcsset:groupType>
-							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
-							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
-							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
-						</dcsset:item>
-					</dcsset:groupItems>
-					<dcsset:filter>
-						<dcsset:item xsi:type="dcsset:FilterItemComparison">
-							<dcsset:left xsi:type="dcscor:Field">Пост22</dcsset:left>
-							<dcsset:comparisonType>Filled</dcsset:comparisonType>
-						</dcsset:item>
-					</dcsset:filter>
-					<dcsset:order>
-						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
-					</dcsset:order>
-					<dcsset:selection>
-						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
-					</dcsset:selection>
-					<dcsset:outputParameters>
-						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-							<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
-							<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
-						</dcscor:item>
-					</dcsset:outputParameters>
-					<dcsset:item>
-						<dcsset:groupItems>
-							<dcsset:item xsi:type="dcsset:GroupItemField">
-								<dcsset:field>Пост22Касса</dcsset:field>
-								<dcsset:groupType>Items</dcsset:groupType>
-								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
-								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
-								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
-							</dcsset:item>
-						</dcsset:groupItems>
-						<dcsset:order>
-							<dcsset:item xsi:type="dcsset:OrderItemAuto">
-								<dcsset:use>false</dcsset:use>
-							</dcsset:item>
-						</dcsset:order>
-						<dcsset:selection>
-							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
-						</dcsset:selection>
-						<dcsset:outputParameters>
-							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-								<dcscor:use>false</dcscor:use>
-								<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
-								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
-							</dcscor:item>
-							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-								<dcscor:use>false</dcscor:use>
-								<dcscor:parameter>Заголовок</dcscor:parameter>
-								<dcscor:value xsi:type="xs:string">Пост22</dcscor:value>
 							</dcscor:item>
 							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 								<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
