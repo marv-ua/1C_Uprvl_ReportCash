@@ -1423,13 +1423,14 @@
 	0,
 	0,
 	ВЫБОР
-		КОГДА ОФис.СотрудникиПодотчет = ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ЗАРПЛАТА)
-				ИЛИ ОФис.СотрудникиПодотчет = "ПРИВИВКИ"
+		КОГДА ОФис.СотрудникиПодотчет = "ПРИВИВКИ"
 			ТОГДА ВЫБОР
 					КОГДА ОФис.СуммаНачальныйОстаток = 0
 						ТОГДА ОФис.Приход// - ОФис.Расход
 					ИНАЧЕ ОФис.СуммаНачальныйОстаток
 				КОНЕЦ
+			КОГДА ОФис.СотрудникиПодотчет = ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ЗАРПЛАТА)
+				ТОГДА ОФис.СуммаНачальныйОстаток 	
 		ИНАЧЕ 0
 	КОНЕЦ,
 	ВЫБОР
@@ -1438,7 +1439,9 @@
 		КОГДА ОФис.СотрудникиПодотчет = "ПРИВИВКИ"
 				ИЛИ ОФис.СотрудникиПодотчет = "Ошибочный платеж"
 				ИЛИ ОФис.СотрудникиПодотчет = "Инет магаз"
-			ТОГДА ОФис.Расход
+			ТОГДА ОФис.Расход  
+		КОГДА ОФис.СотрудникиПодотчет = ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ЗАРПЛАТА)
+			ТОГДА ОФис.СуммаКонечныйОстаток			
 		ИНАЧЕ 0
 	КОНЕЦ
 ИЗ
@@ -4347,7 +4350,6 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>допИтог</dcsset:field>
-					<dcsset:title> </dcsset:title>
 				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>1ea8cf0e-705e-4af9-9356-db931e387789</dcsset:userSettingID>
@@ -4361,8 +4363,8 @@
 					<dcscor:parameter>СтПериод</dcscor:parameter>
 					<dcscor:value xsi:type="v8:StandardPeriod">
 						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
-						<v8:startDate>2021-10-01T00:00:00</v8:startDate>
-						<v8:endDate>2021-10-31T23:59:59</v8:endDate>
+						<v8:startDate>2021-11-01T00:00:00</v8:startDate>
+						<v8:endDate>2021-11-30T23:59:59</v8:endDate>
 					</dcscor:value>
 					<dcsset:userSettingID>b0ac95c7-3a4c-4fd5-969b-c07588585500</dcsset:userSettingID>
 				</dcscor:item>
@@ -4955,11 +4957,6 @@
 										<dcsset:comparisonType>Equal</dcsset:comparisonType>
 										<dcsset:right xsi:type="xs:string">ПРИВИВКИ</dcsset:right>
 									</dcsset:item>
-									<dcsset:item xsi:type="dcsset:FilterItemComparison">
-										<dcsset:left xsi:type="dcscor:Field">СотрудникиПодотчет</dcsset:left>
-										<dcsset:comparisonType>Equal</dcsset:comparisonType>
-										<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Управленческий.Зарплата</dcsset:right>
-									</dcsset:item>
 								</dcsset:item>
 							</dcsset:filter>
 							<dcsset:appearance>
@@ -4981,18 +4978,10 @@
 									<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
 									<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
 								</dcsset:item>
-								<dcsset:item xsi:type="dcsset:FilterItemGroup">
-									<dcsset:groupType>OrGroup</dcsset:groupType>
-									<dcsset:item xsi:type="dcsset:FilterItemComparison">
-										<dcsset:left xsi:type="dcscor:Field">СотрудникиПодотчет</dcsset:left>
-										<dcsset:comparisonType>Equal</dcsset:comparisonType>
-										<dcsset:right xsi:type="xs:string">ПРИВИВКИ</dcsset:right>
-									</dcsset:item>
-									<dcsset:item xsi:type="dcsset:FilterItemComparison">
-										<dcsset:left xsi:type="dcscor:Field">СотрудникиПодотчет</dcsset:left>
-										<dcsset:comparisonType>Equal</dcsset:comparisonType>
-										<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Управленческий.Зарплата</dcsset:right>
-									</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СотрудникиПодотчет</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:string">ПРИВИВКИ</dcsset:right>
 								</dcsset:item>
 							</dcsset:filter>
 							<dcsset:appearance>
@@ -5052,6 +5041,46 @@
 								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 									<dcscor:parameter>ЦветФона</dcscor:parameter>
 									<dcscor:value xsi:type="v8ui:Color">style:NavigationColor</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>СуммаКонечныйОстаток</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СотрудникиПодотчет</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Управленческий.Зарплата</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:NavigationColor</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>СуммаНачальныйОстаток</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СотрудникиПодотчет</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Управленческий.Зарплата</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:MediumGreen</dcscor:value>
 								</dcscor:item>
 							</dcsset:appearance>
 						</dcsset:item>
