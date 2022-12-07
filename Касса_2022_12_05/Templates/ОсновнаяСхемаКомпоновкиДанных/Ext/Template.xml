@@ -4325,6 +4325,8 @@
 		<valueType>
 			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Кассы</v8:Type>
 		</valueType>
+		<value xsi:type="xs:string">1fdff2ae-95f0-11eb-8126-00155dcde101</value>
+		<value xsi:type="xs:string">abfe2d85-960e-11eb-8126-00155dcde101</value>
 		<useRestriction>false</useRestriction>
 		<valueListAllowed>true</valueListAllowed>
 		<use>Always</use>
@@ -4687,8 +4689,8 @@
 					<dcscor:parameter>СтПериод</dcscor:parameter>
 					<dcscor:value xsi:type="v8:StandardPeriod">
 						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
-						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
-						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+						<v8:startDate>2022-01-01T00:00:00</v8:startDate>
+						<v8:endDate>2022-01-31T23:59:59</v8:endDate>
 					</dcscor:value>
 					<dcsset:userSettingID>b0ac95c7-3a4c-4fd5-969b-c07588585500</dcsset:userSettingID>
 				</dcscor:item>
@@ -6460,12 +6462,24 @@
 							<dcsset:periodAdditionEnd xsi:type="dcscor:Field">ПараметрыДанных.КонецПериода</dcsset:periodAdditionEnd>
 						</dcsset:item>
 					</dcsset:groupItems>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПериодДень</dcsset:left>
+							<dcsset:comparisonType>Filled</dcsset:comparisonType>
+						</dcsset:item>
+					</dcsset:filter>
 					<dcsset:order>
 						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 					</dcsset:order>
 					<dcsset:selection>
 						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 					</dcsset:selection>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
 					<dcsset:item>
 						<dcsset:groupItems>
 							<dcsset:item xsi:type="dcsset:GroupItemField">
