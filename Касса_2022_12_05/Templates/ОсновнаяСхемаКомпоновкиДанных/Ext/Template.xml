@@ -875,7 +875,8 @@
 	0 КАК Расход,
 	УправленческийОстаткиИОбороты.ПериодДень КАК ПериодДень,
 	УправленческийОстаткиИОбороты.ПериодМесяц КАК ПериодМесяц,
-	УправленческийОстаткиИОбороты.Регистратор КАК Регистратор
+	УправленческийОстаткиИОбороты.Регистратор КАК Регистратор,
+	1 КАК ПолеСортировки
 ИЗ
 	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(&amp;ДатаНачала, &amp;ДатаОкончания, Авто, , Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса)), , Субконто1 В (&amp;СписокКасс)) КАК УправленческийОстаткиИОбороты
 
@@ -889,7 +890,8 @@
 	ПР.Расход,
 	ПР.ПериодДень,
 	ПР.ПериодМесяц,
-	ПР.Регистратор
+	ПР.Регистратор,
+	NULL
 ИЗ
 	(ВЫБРАТЬ
 		ВНД.Раздел КАК Раздел,
@@ -1153,9 +1155,9 @@
 			УправленческийОбороты.КорСубконто1,
 			УправленческийОбороты.Регистратор,
 			УправленческийОбороты.НомерСтроки,
-			УправленческийОбороты.Регистратор,
 			УправленческийОбороты.ПериодДень,
-			УправленческийОбороты.ПериодМесяц
+			УправленческийОбороты.ПериодМесяц,
+			УправленческийОбороты.Регистратор
 		
 		ОБЪЕДИНИТЬ ВСЕ
 		
@@ -1531,76 +1533,83 @@
 			ААвансы.ПериодМесяц,
 			ААвансы.Регистратор) КАК АААвансы) КАК ПР
 
-ОБЪЕДИНИТЬ ВСЕ 
-// подотчет
-ВЫБРАТЬ 
-	"приход/расход", 
-	0, 
-	0, 
-	0, 
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"приход/расход",
+	0,
+	0,
+	0,
 	Подотчет.СуммаОборотДт - Подотчет.СуммаОборотКт,
 	Подотчет.ПериодДень,
 	Подотчет.ПериодМесяц,
+	NULL,
 	NULL
 ИЗ
 	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(&amp;ДатаНачала, &amp;ДатаОкончания, Авто, , Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ПОДОТЧЕТ)), , ) КАК Подотчет
-   
+
 ОБЪЕДИНИТЬ ВСЕ
-// ошибочный платеж
-ВЫБРАТЬ 
-	"приход/расход", 
-	0, 
-	0, 
-	ОшибПлатеж.СуммаОборотКт, 
+
+ВЫБРАТЬ
+	"приход/расход",
+	0,
+	0,
+	ОшибПлатеж.СуммаОборотКт,
 	ОшибПлатеж.СуммаОборотДт,
 	ОшибПлатеж.ПериодДень,
 	ОшибПлатеж.ПериодМесяц,
+	NULL,
 	NULL
 ИЗ
 	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(&amp;ДатаНачала, &amp;ДатаОкончания, Авто, , Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ФИНАГЕНТЫ)), , Субконто1 В ИЕРАРХИИ (&amp;ФинагентОшибочные)) КАК ОшибПлатеж
 
 ОБЪЕДИНИТЬ ВСЕ
-// инет магаз
-ВЫБРАТЬ 
-	"приход/расход", 
-	0, 
-	0, 
-	0, 
+
+ВЫБРАТЬ
+	"приход/расход",
+	0,
+	0,
+	0,
 	ИнетМагаз.СуммаОборотДт,
 	ИнетМагаз.ПериодДень,
 	ИнетМагаз.ПериодМесяц,
+	NULL,
 	NULL
 ИЗ
 	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(&amp;ДатаНачала, &amp;ДатаОкончания, Авто, , Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ФИНАГЕНТЫ)), , Субконто1 В (&amp;ФинагентИнетМагаз)) КАК ИнетМагаз
 
-
-
 ОБЪЕДИНИТЬ ВСЕ
-// прививки
-ВЫБРАТЬ 
-	"приход/расход", 
-	0, 
-	0, 
-	ВЫБОР КОГДА Прививки.СуммаНачальныйОстаток = 0 ТОГДА Прививки.СуммаОборотКт ИНАЧЕ Прививки.СуммаНачальныйОстаток КОНЕЦ, 
+
+ВЫБРАТЬ
+	"приход/расход",
+	0,
+	0,
+	ВЫБОР
+		КОГДА Прививки.СуммаНачальныйОстаток = 0
+			ТОГДА Прививки.СуммаОборотКт
+		ИНАЧЕ Прививки.СуммаНачальныйОстаток
+	КОНЕЦ,
 	Прививки.СуммаОборотДт,
 	Прививки.ПериодДень,
 	Прививки.ПериодМесяц,
+	NULL,
 	NULL
 ИЗ
 	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(&amp;ДатаНачала, &amp;ДатаОкончания, Авто, , Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ФИНАГЕНТЫ)), , Субконто1 В ИЕРАРХИИ (&amp;ФинагентПрививки)) КАК Прививки
 
 ОБЪЕДИНИТЬ ВСЕ
-// зарплата
-ВЫБРАТЬ 
-	"приход/расход", 
-	0, 
-	0, 
-	Зарплата.СуммаНачальныйОстаток, 
-	Зарплата.СуммаКонечныйОстаток, 	
+
+ВЫБРАТЬ
+	"приход/расход",
+	0,
+	0,
+	Зарплата.СуммаНачальныйОстаток,
+	Зарплата.СуммаКонечныйОстаток,
 	Зарплата.ПериодДень,
-	Зарплата.ПериодМесяц, 
-	NULL 
- ИЗ
+	Зарплата.ПериодМесяц,
+	NULL,
+	NULL
+ИЗ
 	РегистрБухгалтерии.Управленческий.ОстаткиИОбороты(&amp;ДатаНачала, &amp;ДатаОкончания, Авто, , Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.ЗАРПЛАТА)), , ) КАК Зарплата
 
 ОБЪЕДИНИТЬ ВСЕ
@@ -1613,7 +1622,8 @@
 	0,
 	ВНД_Меркурий.ПериодДень,
 	ВНД_Меркурий.ПериодМесяц,
-	ВНД_Меркурий.Регистратор
+	ВНД_Меркурий.Регистратор,
+	NULL
 ИЗ
 	(ВЫБРАТЬ
 		"ВНД Меркурий 2" КАК ВНДМеркурий,
@@ -1644,7 +1654,8 @@
 	0,
 	Реализация_.ПериодДень,
 	Реализация_.ПериодМесяц,
-	Реализация_.Регистратор
+	Реализация_.Регистратор,
+	NULL
 ИЗ
 	(ВЫБРАТЬ
 		"Реализация" КАК Реализация,
@@ -1676,6 +1687,7 @@
 	Пост_22.Расход,
 	Пост_22.ПериодДень,
 	Пост_22.ПериодМесяц,
+	NULL,
 	NULL
 ИЗ
 	(ВЫБРАТЬ
@@ -1720,7 +1732,8 @@
 	Возвр.Расход,
 	Возвр.ПериодДень,
 	Возвр.ПериодМесяц,
-	Возвр.Регистратор
+	Возвр.Регистратор,
+	NULL
 ИЗ
 	(ВЫБРАТЬ
 		"Возвраты" КАК Возвраты,
@@ -1764,7 +1777,8 @@
 	РасшПеремещ.Расход,
 	РасшПеремещ.ПериодДень,
 	РасшПеремещ.ПериодМесяц,
-	РасшПеремещ.Регистратор
+	РасшПеремещ.Регистратор,
+	NULL
 ИЗ
 	(ВЫБРАТЬ
 		"Расшифровка перемещений" КАК РП,
@@ -1812,7 +1826,8 @@
 	Универсам.Расход,
 	Универсам.ПериодДень,
 	Универсам.ПериодМесяц,
-	Универсам.Регистратор
+	Универсам.Регистратор,
+	NULL
 ИЗ
 	(ВЫБРАТЬ
 		"Расшифровка 51" КАК Приход51,
@@ -1844,7 +1859,8 @@
 	ПерсП20.Расход,
 	ПерсП20.ПериодДень,
 	ПерсП20.ПериодМесяц,
-	ПерсП20.Регистратор
+	ПерсП20.Регистратор,
+	NULL
 ИЗ
 	(ВЫБРАТЬ
 		"_" КАК ПП20,
@@ -4236,8 +4252,8 @@
 		</valueType>
 		<value xsi:type="v8:StandardPeriod">
 			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
-			<v8:startDate>2021-10-01T00:00:00</v8:startDate>
-			<v8:endDate>2021-10-31T23:59:59</v8:endDate>
+			<v8:startDate>2022-04-01T00:00:00</v8:startDate>
+			<v8:endDate>2022-04-30T23:59:59</v8:endDate>
 		</value>
 		<useRestriction>false</useRestriction>
 		<use>Always</use>
@@ -4325,8 +4341,8 @@
 		<valueType>
 			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Кассы</v8:Type>
 		</valueType>
-		<value xsi:type="xs:string">1fdff2ae-95f0-11eb-8126-00155dcde101</value>
-		<value xsi:type="xs:string">abfe2d85-960e-11eb-8126-00155dcde101</value>
+		<value xsi:type="xs:string">4a3e4b7f-b1ab-11ec-8140-00155dcde101</value>
+		<value xsi:type="xs:string">5eb2c902-b1ab-11ec-8140-00155dcde101</value>
 		<useRestriction>false</useRestriction>
 		<valueListAllowed>true</valueListAllowed>
 		<use>Always</use>
@@ -4689,19 +4705,20 @@
 					<dcscor:parameter>СтПериод</dcscor:parameter>
 					<dcscor:value xsi:type="v8:StandardPeriod">
 						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
-						<v8:startDate>2022-01-01T00:00:00</v8:startDate>
-						<v8:endDate>2022-01-31T23:59:59</v8:endDate>
+						<v8:startDate>2022-04-01T00:00:00</v8:startDate>
+						<v8:endDate>2022-04-30T23:59:59</v8:endDate>
 					</dcscor:value>
 					<dcsset:userSettingID>b0ac95c7-3a4c-4fd5-969b-c07588585500</dcsset:userSettingID>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>СписокКасс</dcscor:parameter>
-					<dcscor:value xsi:type="xs:string">1fdff2ae-95f0-11eb-8126-00155dcde101</dcscor:value>
-					<dcscor:value xsi:type="xs:string">abfe2d85-960e-11eb-8126-00155dcde101</dcscor:value>
+					<dcscor:value xsi:type="xs:string">4a3e4b7f-b1ab-11ec-8140-00155dcde101</dcscor:value>
+					<dcscor:value xsi:type="xs:string">5eb2c902-b1ab-11ec-8140-00155dcde101</dcscor:value>
 					<dcsset:userSettingID>235f0fa3-6a1f-4c96-9991-dee6fe66257c</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>f63ba727-80a4-4913-9ded-8c97243d763c</dcsset:userSettingID>
 			</dcsset:order>
@@ -5025,9 +5042,23 @@
 							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
 							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:field>ПолеСортировки</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
 					</dcsset:groupItems>
 					<dcsset:order>
-						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto">
+							<dcsset:use>false</dcsset:use>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Касса.Код</dcsset:field>
+							<dcsset:orderType>Desc</dcsset:orderType>
+						</dcsset:item>
 					</dcsset:order>
 					<dcsset:selection>
 						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
@@ -5096,6 +5127,11 @@
 						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 							<dcscor:parameter>РасположениеОбщихИтогов</dcscor:parameter>
 							<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">Begin</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>АвтоПозицияРесурсов</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionResourcesAutoPosition">DontUse</dcscor:value>
 						</dcscor:item>
 					</dcsset:outputParameters>
 				</dcsset:row>
