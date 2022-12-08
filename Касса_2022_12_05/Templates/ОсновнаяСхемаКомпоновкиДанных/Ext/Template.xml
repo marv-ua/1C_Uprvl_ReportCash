@@ -4072,14 +4072,13 @@
 	</calculatedField>
 	<totalField>
 		<dataPath>Приход</dataPath>
-		<expression>Сумма(Приход)</expression>
+		<expression>ВЫБОР КОГДА Сумма(Приход) - Сумма(Расход) &gt; 0 ТОГДА Сумма(Приход) - Сумма(Расход) ИНАЧЕ 0 КОНЕЦ</expression>
 		<group>ПриходРасход</group>
 		<group>Раздел</group>
 	</totalField>
 	<totalField>
 		<dataPath>Расход</dataPath>
-		<expression>Сумма(Расход)
-</expression>
+		<expression>ВЫБОР КОГДА Сумма(Расход) - Сумма(Приход) &gt; 0 ТОГДА Сумма(Расход) - Сумма(Приход) ИНАЧЕ 0 КОНЕЦ</expression>
 		<group>ПриходРасход</group>
 		<group>Раздел</group>
 	</totalField>
@@ -4705,15 +4704,15 @@
 					<dcscor:parameter>СтПериод</dcscor:parameter>
 					<dcscor:value xsi:type="v8:StandardPeriod">
 						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
-						<v8:startDate>2022-04-01T00:00:00</v8:startDate>
-						<v8:endDate>2022-04-30T23:59:59</v8:endDate>
+						<v8:startDate>2021-10-01T00:00:00</v8:startDate>
+						<v8:endDate>2021-10-31T23:59:59</v8:endDate>
 					</dcscor:value>
 					<dcsset:userSettingID>b0ac95c7-3a4c-4fd5-969b-c07588585500</dcsset:userSettingID>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>СписокКасс</dcscor:parameter>
-					<dcscor:value xsi:type="xs:string">4a3e4b7f-b1ab-11ec-8140-00155dcde101</dcscor:value>
-					<dcscor:value xsi:type="xs:string">5eb2c902-b1ab-11ec-8140-00155dcde101</dcscor:value>
+					<dcscor:value xsi:type="xs:string">1fdff2ae-95f0-11eb-8126-00155dcde101</dcscor:value>
+					<dcscor:value xsi:type="xs:string">abfe2d85-960e-11eb-8126-00155dcde101</dcscor:value>
 					<dcsset:userSettingID>235f0fa3-6a1f-4c96-9991-dee6fe66257c</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:dataParameters>
